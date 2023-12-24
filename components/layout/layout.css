@@ -20,10 +20,10 @@
 .sidebar.active {
   display: block;
   position: absolute;
-  z-index: 1000;
-  top: 20px;
+  z-index: 100;
+  top: 40px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50% );
   border-radius: 10px;
 }
 .sidebar.disAppearNow {
@@ -80,3 +80,7 @@
 /* .sidebar-toggler{
 
 } */
+/* TRIPLE DOTS */
+.edit-delete-list.active{
+display: flex;
+}

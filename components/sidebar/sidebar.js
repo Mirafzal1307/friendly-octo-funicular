@@ -90,5 +90,33 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 
+  const tripleDots = document.querySelector(".triple-dots");
+  const editDeleteList = document.querySelector(".edit-delete-list");
+
+  // Show or hide edit-delete-list on triple dots click
+  tripleDots.addEventListener("click", function (event) {
+    event.stopPropagation(); // Prevents the click event from reaching the document
+
+    editDeleteList.classList.toggle("active");
+  });
+
+  // Hide edit-delete-list when clicking outside of it
+  document.addEventListener("click", function () {
+    editDeleteList.classList.remove("active");
+  });
+
+  // Prevent hiding when clicking inside the edit-delete-list
+  editDeleteList.addEventListener("click", function (event) {
+    event.stopPropagation();
+  });
+
+  document.querySelectorAll('.toggle-modal-button').addEventListener('click',()=>{
+editDeleteList.classList.remove ('active')
+ })
+
+ document.querySelector('.cancel-btn').addEventListener('click',()=>{
+  document.getElementById('delete-board-modal').classList.add('hidden')
+  blocker.classList.remove('active')
+ })
 
 })

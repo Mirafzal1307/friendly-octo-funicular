@@ -18,7 +18,7 @@
   <body class="w-full h-full font-plus-jakarta-sans">
     <div class="flex flex-col h-full w-full">
       <!-- HEADER -->
-      <header class="flex items-center w-full px-6 z-0 bg-content-color">
+      <header class="flex relative items-center w-full px-6 z-0 bg-content-color">
         <!-- HEADER LOGO -->
         <div
           class="h-full flex text-black font-bold md:border-r-2 border-lines-color transition duration-200 ease-in-out focus:outline-none hover:opacity-80"
@@ -93,14 +93,28 @@
               <span class="hidden md:inline-block">Add New Task</span>
             </button>
             <!-- TRIPLE DOTS -->
+              <div class="flex flex-col justify-center items-center">
+                <i class="icon-menu triple-dots cursor-pointer text-[#828FA3]"></i>
 
-            <i class="icon-menu cursor-pointer text-color"></i>
+              </div>
           </div>
         </div>
+        <ul class="edit-delete-list text-[20px] hidden w-[150px] absolute top-16 right-3   text-center font-bold h-24  flex-col gap-7  bg-page-color  z-[60] rounded-[10px] ">
+          <li class="cursor-pointer mt-1" >
+            <button class="toggle-modal-button text-[#828FA3]" modal-id="edit-board-modal">
+              Edit  board
+            </button>
+          </li>
+          <li class="cursor-pointer z-50 ">
+             <button class="toggle-modal-button text-red-500" modal-id="delete-board-modal">
+              Delete board
+               </button>
+              </li>
+        </ul>
       </header>
 
       <!-- MAIN -->
-      <main class="relative flex w-full h-full">
+      <main class=" flex w-full h-full">
         <!-- <div
         class="blocker hidden w-full h-full absolute z-100 bg-black opacity-40"
       ></div> -->
@@ -366,7 +380,7 @@
               </div>
             </div>
 
-  
+
             <button
               type="submit"
               class="createNewTask btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-[#635fc7] text-white hover:bg-primary-light-color"
@@ -382,6 +396,227 @@
         class="relative modal hidden max-w-[340px] md:max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8 capitalize"
         id="open-task-modal"
       ></div>
+      <!-- Edit task modal -->
+      <div
+        class="relative modal hidden max-w-[480px] overflow-y-auto max-h-[85vh] w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="edit-task-modal"
+      >
+        <div class="h-full">
+          <i
+            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+          ></i>
+          <div class="">
+            <h3 class="text-color text-[18px] font-bold">Edit Task</h3>
+          </div>
+          <div class="mt-6">
+            <label
+              class="relative flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+            >
+              Title
+              <input
+                class="requiredput block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                type="text"
+                placeholder="e.g. Take coffee break"
+              />
+              <span
+                class="input-span hidden absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                >Can’t be empty</span
+              >
+            </label>
+            <label
+              for="textarea"
+              class="relative mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
+              >Description
+              <textarea
+                name="textarea"
+                id="textarea"
+                class="block bg-transparent w-full text-color resize-none pl-4 pr-[25px] font-medium leading-[23px] pb-[57px] pt-2 rounded right-1 border border-input-color focus:border-primary-color outline-none active:transition ease-in duration-200"
+                placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
+              ></textarea>
+            </label>
+
+            <div class="flex flex-col mt-6">
+              <label
+                class="relative form-label flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+              >
+                Subtasks
+                <div class="flex gap-4">
+                  <input
+                    class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                    type="text"
+                    placeholder="e.g. Take coffee break"
+                  />
+                  <button
+                    type="button"
+                    class="button border-transparent bg-transparent close-btn"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                    >
+                      <rect
+                        x="12.7275"
+                        width="3"
+                        height="18"
+                        transform="rotate(45 12.7275 0)"
+                        fill="#828FA3"
+                      />
+                      <rect
+                        y="2.12132"
+                        width="3"
+                        height="18"
+                        transform="rotate(-45 0 2.12132)"
+                        fill="#828FA3"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <span
+                  class="input-span hidden absolute top-[55%] right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
+                  >Can’t be empty</span
+                >
+              </label>
+            </div>
+
+            <button
+              class="btn mt-6 rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+            >
+              + Add New Subtask
+            </button>
+
+            <button
+              type="submit"
+              class="btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+            >
+              Create Task
+            </button>
+          </div>
+        </div>
+      </div>
+     <!-- Edit Board modal -->
+     <div
+     class="relative modal hidden max-w-[480px] overflow-y-auto max-h-[85vh] w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+     id="edit-board-modal"
+   >
+     <div class="h-full">
+       <i
+         class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+       ></i>
+       <div class="">
+         <h3 class="text-color text-[18px] font-bold">Edit Board</h3>
+       </div>
+       <div class="mt-6">
+         <label
+           class="relative flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+         >
+           Board Name
+           <input
+             class="requiredput block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+             type="text"
+             placeholder="e.g. Web Design"
+           />
+           <span
+             class="input-span hidden absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+             >Can’t be empty</span
+           >
+         </label>
+         <div class="flex flex-col mt-6">
+           <label
+             class="relative form-label flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
+           >
+             Board Columns
+             <div class="flex gap-4">
+               <input
+                 class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
+                 type="text"
+                 placeholder="e.g. Take coffee break"
+               />
+               <button
+                 type="button"
+                 class="button border-transparent bg-transparent close-btn"
+               >
+                 <svg
+                   xmlns="http://www.w3.org/2000/svg"
+                   width="15"
+                   height="15"
+                   viewBox="0 0 15 15"
+                   fill="none"
+                 >
+                   <rect
+                     x="12.7275"
+                     width="3"
+                     height="18"
+                     transform="rotate(45 12.7275 0)"
+                     fill="#828FA3"
+                   />
+                   <rect
+                     y="2.12132"
+                     width="3"
+                     height="18"
+                     transform="rotate(-45 0 2.12132)"
+                     fill="#828FA3"
+                   />
+                 </svg>
+               </button>
+             </div>
+             <span
+               class="input-span hidden absolute top-[55%] right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
+               >Can’t be empty</span
+             >
+           </label>
+         </div>
+
+         <button
+           class="btn mt-6 rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+         >
+           + Add New Column
+         </button>
+         <button
+           type="submit"
+           class="btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+         >
+           Create New Board
+         </button>
+       </div>
+     </div>
+   </div>
+      <!-- Delete Board modal -->
+      <div
+        class="relative modal hidden max-w-[480px] overflow-y-auto max-h-[85vh] w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        id="delete-board-modal"
+      >
+        <div class="h-full">
+          <i
+            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+          ></i>
+          <div class="">
+            <h3 class="text-[18px] text-danger-color font-bold">
+              Delete this board?
+            </h3>
+          </div>
+          <p class="text-[#828fa3] mt-6 font-medium text-base leading-6">
+            Are you sure you want to delete the ‘Platform Launch’ board? This
+            action will remove all columns and tasks and cannot be reversed.
+          </p>
+          <div
+            class="flex items-center mt-6 justify-center w-full gap-4 flex-col md:flex-row"
+          >
+            <button
+              class="btn rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-danger-color text-white hover:bg-[#FF9898]"
+            >
+              Delete
+            </button>
+            <button
+              class="cancel-btn btn rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color bg-btn-light-color hover:bg-btn-hover-color"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div
