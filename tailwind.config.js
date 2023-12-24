@@ -11,6 +11,7 @@ module.exports = {
         'primary-light-color': 'var(--primary-light-color)',
         'primary-disabled-color': 'var(--primary-disabled-color)',
         'gray-color': 'var(--gray-color)',
+        'whitish-gray':'var(--whitish-gray-color)',
         'danger-color': 'var(--danger-color)',
         'danger-light-color': 'var(--danger-light-color)',
         'input-color': 'var(--input-border)',

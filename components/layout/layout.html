@@ -70,7 +70,7 @@
             <!-- SIDEBAR OPENER ICON -->
             <span class="">
               <svg
-                class="sidebarOpenerIcon rotate-90 inline-block w-full transition cursor-pointer duration-200 ease-in-out md:hidden hover:scale-150"
+                class="sidebarOpenerIcon  inline-block w-full transition cursor-pointer duration-200 ease-in-out md:hidden hover:scale-150"
                 fill="none"
                 height="7"
                 viewBox="0 0 7 9"
@@ -101,6 +101,10 @@
 
       <!-- MAIN -->
       <main class="relative flex w-full h-full">
+        <!-- <div
+        class="blocker hidden w-full h-full absolute z-100 bg-black opacity-40"
+      ></div> -->
+
         <!-- SIDEBAR -->
         <aside
           class="sidebar pr-6 min-w-[300px] hidden md:border-r-2 md:shadow-none shadow-md shadow-indigo-500 border-lines-color md:h-full md:flex md:flex-col justify-between md:items-center transition duration-200 ease-in-out bg-content-color"
@@ -115,7 +119,8 @@
             <ul
               class="board-list w-full mr-6 md:flex md:flex-col"
               id="boardList"
-            ></ul>
+            >
+          </ul>
 
             <!-- ADD NEW BOARD -->
             <button
@@ -170,12 +175,13 @@
       </main>
     </div>
 
-    <!-- Add Board modal -->
+
     <div
       class="w-full h-full absolute overlay hidden top-0 left-0 items-center justify-center"
     >
+    <!-- Add Board modal -->
       <div
-        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        class="relative modal hidden max-w-[340px]  md:max-w-[480px] md:max-h-[85vh]  overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
         id="add-board-modal"
       >
         <div class="h-full">
@@ -191,12 +197,12 @@
             <div
               class="column-inputs-wrapper flex items-center flex-col gap-2 w-full"
             >
-              <h3 class="text-left w-full mt-6">Name</h3>
+              <label class="text-left w-full mt-6" for="fname" > Name</label>
 
               <div
                 class="relative flex w-full flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
               >
-                <input
+                <input id="fname"
                   class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
                   type="text"
                   placeholder="e.g. Web Design"
@@ -206,10 +212,10 @@
                   >Can’t be empty</span
                 >
               </div>
-              <h3 class="text-left w-full">Columns</h3>
+              <label for="columns" class="text-left w-full">Columns</label>
 
               <div class="relative flex gap-4 w-full">
-                <input
+                <input id="columns"
                   class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
                   type="text"
                   placeholder="e.g. Take coffee break"
@@ -219,7 +225,7 @@
                   class="button icon-close border-transparent bg-transparent duration-200 hover:text-danger-color close-btn"
                 ></button>
                 <span
-                  class="input-span hidden absolute top-2 right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
+                  class="input-span hidden absolute top-2 right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px] cursor-default pointer-events-none"
                   >Can’t be empty</span
                 >
               </div>
@@ -241,28 +247,29 @@
             </div>
 
             <button
-              class="addNewColumnButton btn mt-6 rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
+              class="addNewColumnButton btn mt-6 rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-[#635fc7]  bg-whitish-gray hover:bg-[#635FC740]"
             >
               + Add New Column
             </button>
             <button
               type="submit"
-              class="createNewBoard btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+              class="createNewBoard btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-[#635fc7] text-white hover:bg-primary-light-color"
             >
               Create New Board
             </button>
           </div>
         </div>
       </div>
+
       <!-- Add Task modal -->
 
       <div
-        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        class="relative modal hidden max-w-[340px] md:max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
         id="add-task-modal"
       >
-        <div class="h-full">
+        <div class="h-full ">
           <i
-            class="icon-close close-modal absolute top-6 right-6 sm:top-8 sm:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
+            class="icon-close close-modal absolute top-6 right-6 md:top-8 md:right-8 cursor-pointer text-color hover:text-danger-color duration-150 active:text-danger-light-color"
           ></i>
           <div class="">
             <h3 class="text-color text-[18px] font-bold">Add New Task</h3>
@@ -276,14 +283,14 @@
               <div
                 class="relative w-full flex flex-col gap-2 text-gray-color font-plus-jakarta-sans font-bold text-[12px] leading-5"
               >
-                <h3 class="text-left w-full">Title</h3>
-                <input
+                <label for="taskTitle" class="text-left w-full">Title</label>
+                <input id="taskTitle"
                   class="requiredput modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
                   type="text"
                   placeholder="e.g. Take coffee break"
                 />
                 <span
-                  class="input-span hidden absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                  class="input-span hidden  absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
                   >Can’t be empty</span
                 >
               </div>
@@ -291,10 +298,10 @@
                 for="textarea"
                 class="relative w-full mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
               >
-                <h3 class="text-left w-full">Description</h3>
+                <label for="taskDescription" class="text-left w-full">Description</label>
                 <textarea
                   name="textarea"
-                  id="textarea"
+                  id="taskDescription"
                   class="block modal-input bg-transparent w-full text-color resize-none pl-4 pr-[25px] font-medium leading-[23px] pb-[57px] pt-2 rounded right-1 border border-input-color focus:border-primary-color outline-none active:transition ease-in duration-200"
                   placeholder="e.g. It’s always good to take a break. This 15 minute break will recharge the batteries a little."
                 ></textarea>
@@ -302,26 +309,32 @@
               <div
                 class="relative w-full mt-6 text-gray-color flex flex-col gap-2 not-italic text-[12px] font-bold leading-normal"
               >
-                <h3 class="text-left w-full">Subtasks</h3>
+                <label for="subtasks" class="text-left w-full">Subtasks</label>
                 <div class="relative flex gap-4 w-full">
-                  <input
+                  <input id="subtasks"
                     class="modal-input block bg-transparent w-full px-4 py-2 rounded text-color outline-none cursor-pointer font-medium text-[13px] leading-[23px] border border-input-color focus:border-primary-color active:transition duration-200 active:ease-in"
                     type="text"
                     placeholder="e.g. Take coffee break"
                   />
                   <button
                     type="button"
-                    class="button icon-close border-transparent bg-transparent duration-200 hover:text-danger-color close-btn"
+                    class="button icon-close  border-transparent bg-transparent duration-200 hover:text-danger-color close-btn"
                   ></button>
                   <span
-                    class="input-span hidden absolute top-2 right-12 text-[#ea5555] font-medium leading-[23px] not-italic font-plus-jakarta-sans text-[13px]"
-                    >Can’t be empty</span
+                  class="input-span hidden  absolute top-[55%] right-4 text-[#ea5555] font-medium leading-[23px] not-italic text-[13px]"
+                  >Can’t be empty</span
                   >
                 </div>
               </div>
             </div>
+            <button
+              class="addNewTaskButton btn rounded-full w-full text-center py-2 my- font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color bg-whitish-gray hover:bg-[#635FC740]"
+            >
+              + Add New Column
+            </button>
             <div class="dropdown">
               <div class="dropdown-menu relative w-full">
+                <label for="" class="text-left w-full" >Status</label>
                 <div
                   class="dropdown-btn status min-w-full w-full justify-between flex items-center px-4 py-2 rounded border focus:outline-none active:border-[#635FC7] group"
                 >
@@ -353,14 +366,10 @@
               </div>
             </div>
 
-            <button
-              class="addNewTaskButton btn rounded-full w-full text-center py-2 font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 outline-none text-primary-color dark:bg-white bg-[#635fc71a] hover:bg-[#635FC740]"
-            >
-              + Add New Column
-            </button>
+  
             <button
               type="submit"
-              class="createNewTask btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-primary-color text-white hover:bg-primary-light-color"
+              class="createNewTask btn mt-6 rounded-full w-full text-center py-2 font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[13px] leading-6 focus:outline-none bg-[#635fc7] text-white hover:bg-primary-light-color"
             >
               Create New Task
             </button>
@@ -370,14 +379,14 @@
       <!-- Open Task modal -->
 
       <div
-        class="relative modal hidden max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8"
+        class="relative modal hidden max-w-[340px] md:max-w-[480px] max-h-[85vh] overflow-y-auto w-full mx-auto z-20 bg-content-color p-6 sm:p-8 capitalize"
         id="open-task-modal"
       ></div>
     </div>
 
     <div
-      class="blocker hidden w-full h-full absolute z-100 bg-black opacity-40"
-    ></div>
+    class="blocker hidden w-full h-full absolute z-100 bg-black opacity-40"
+  ></div>
 
     <!-- JAVASCRIPT LINKS -->
 

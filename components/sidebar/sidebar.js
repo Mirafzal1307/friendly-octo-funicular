@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sidebar = document.querySelector('.sidebar')
   const sidebarOpenerIcon = document.querySelector('.sidebarOpenerIcon')
   const blocker = document.querySelector('.blocker')
-
+  const addNewBoard=document.querySelector('.addNewBoard')
   //  Available boards
   const createdBoards = ['platform']
 
@@ -61,10 +61,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // When blocker is clicked sidebar and blocker disappear
   blocker.addEventListener('click', () => {
-    document.body.classList.remove('block')
+    document.body.classList.remove('active')
     sidebarOpenerIcon.classList.remove('rotated')
     blocker.classList.remove('active')
     sidebar.classList.remove('active')
     hideSidebar.classList.remove('hidden')
   })
+
+  addNewBoard.addEventListener('click',()=>{
+    document.body.classList.remove('block')
+    sidebarOpenerIcon.classList.remove('rotated')
+    sidebar.classList.remove('active')
+    hideSidebar.classList.remove('hidden')
+  })
+
+
+
+  const boardLinks = document.querySelectorAll('.board__link');
+
+  boardLinks.forEach((boardLink) => {
+    boardLink.addEventListener('click', () => {
+      document.body.classList.remove('block')
+    sidebarOpenerIcon.classList.remove('rotated')
+    blocker.classList.remove('active')
+    sidebar.classList.remove('active')
+    hideSidebar.classList.remove('hidden')
+    })
+})
+
+
+
 })

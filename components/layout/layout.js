@@ -476,7 +476,34 @@ function generateTaskModal(task) {
             ${subtasksHtml}
           </div>
           <div class="dropdown">
-            <!-- Dropdown code here -->
+          <div class="dropdown-menu relative w-full">
+          Current Status
+            <div
+              class="dropdown-btn status min-w-full w-full justify-between flex items-center px-4 py-2 rounded border focus:outline-none active:border-[#635FC7] group"
+            >
+              <span
+                class="dBtn-text m-0 text-gray-color cursor-pointer transition duration-400 ease-in-out text-[13px] leading-6"
+                >${statusbar}</span
+              >
+              <span class="dropdown-sign">
+                <svg
+                  class="ml-10"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="11"
+                  height="8"
+                  viewBox="0 0 11 8"
+                  fill="none"
+                >
+                  <path
+                    d="M0.79834 1.54858L5.49682 6.24707L10.1953 1.54858"
+                    stroke="#635FC7"
+                    stroke-width="2"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
@@ -670,7 +697,7 @@ function generateColumn(column) {
 function generateKanbanBoardName(board) {
   return `
     <li>
-      <button 
+      <button
         data-board-id="${board.id}"
         class="btn board__link w-full flex items-center gap-4 text-[#828fa3] rounded-r-full text-left font-plus-jakarta-sans font-bold cursor-pointer transition duration-200 ease-in-out text-[15px] focus:outline-none hover:bg-btn-hover-color hover:text-primary-color md:mr-6 p-[10px] md:py-4 px-6"
         role="button"
