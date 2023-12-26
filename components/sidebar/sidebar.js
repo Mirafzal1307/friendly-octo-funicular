@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sidebar = document.querySelector('.sidebar')
   const sidebarOpenerIcon = document.querySelector('.sidebarOpenerIcon')
   const blocker = document.querySelector('.blocker')
-  const addNewBoard=document.querySelector('.addNewBoard')
+  const addNewBoard = document.querySelector('.addNewBoard')
   //  Available boards
   const createdBoards = ['platform']
 
@@ -68,55 +68,54 @@ document.addEventListener('DOMContentLoaded', function () {
     hideSidebar.classList.remove('hidden')
   })
 
-  addNewBoard.addEventListener('click',()=>{
+  addNewBoard.addEventListener('click', () => {
     document.body.classList.remove('block')
     sidebarOpenerIcon.classList.remove('rotated')
     sidebar.classList.remove('active')
     hideSidebar.classList.remove('hidden')
   })
 
-
-
-  const boardLinks = document.querySelectorAll('.board__link');
+  const boardLinks = document.querySelectorAll('.board__link')
 
   boardLinks.forEach((boardLink) => {
     boardLink.addEventListener('click', () => {
       document.body.classList.remove('block')
-    sidebarOpenerIcon.classList.remove('rotated')
-    blocker.classList.remove('active')
-    sidebar.classList.remove('active')
-    hideSidebar.classList.remove('hidden')
+      sidebarOpenerIcon.classList.remove('rotated')
+      blocker.classList.remove('active')
+      sidebar.classList.remove('active')
+      hideSidebar.classList.remove('hidden')
     })
-})
+  })
 
-
-  const tripleDots = document.querySelector(".triple-dots");
-  const editDeleteList = document.querySelector(".edit-delete-list");
+  const tripleDots = document.querySelector('.triple-dots')
+  const editDeleteList = document.querySelector('.edit-delete-list')
+  const toggleButton = document.querySelectorAll('.toggle-modal-button')
 
   // Show or hide edit-delete-list on triple dots click
-  tripleDots.addEventListener("click", function (event) {
-    event.stopPropagation(); // Prevents the click event from reaching the document
+  tripleDots.addEventListener('click', function (event) {
+    event.stopPropagation() // Prevents the click event from reaching the document
 
-    editDeleteList.classList.toggle("active");
-  });
+    editDeleteList.classList.toggle('active')
+  })
 
   // Hide edit-delete-list when clicking outside of it
-  document.addEventListener("click", function () {
-    editDeleteList.classList.remove("active");
-  });
+  document.addEventListener('click', function () {
+    editDeleteList.classList.remove('active')
+  })
 
   // Prevent hiding when clicking inside the edit-delete-list
-  editDeleteList.addEventListener("click", function (event) {
-    event.stopPropagation();
-  });
+  editDeleteList.addEventListener('click', function (event) {
+    event.stopPropagation()
+  })
 
-  document.querySelectorAll('.toggle-modal-button').addEventListener('click',()=>{
-editDeleteList.classList.remove ('active')
- })
+  toggleButton.forEach((button) => {
+    button.addEventListener('click', () => {
+      editDeleteList.classList.remove('active')
+    })
+  })
 
- document.querySelector('.cancel-btn').addEventListener('click',()=>{
-  document.getElementById('delete-board-modal').classList.add('hidden')
-  blocker.classList.remove('active')
- })
-
+  document.querySelector('.cancel-btn').addEventListener('click', () => {
+    document.getElementById('delete-board-modal').classList.add('hidden')
+    blocker.classList.remove('active')
+  })
 })
